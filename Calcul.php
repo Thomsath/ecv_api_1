@@ -8,45 +8,26 @@
 
 class Calcul
 {
-//    private $_abs;
-//    private $_ord;
-//
-//    /**
-//     * Calcul constructor.
-//     * @param $_abs
-//     * @param $_ord
-//     */
-//    public function __construct($_abs, $_ord)
-//    {
-//        $this->_abs = $_abs;
-//        $this->_ord = $_ord;
-//    }
-
-
     public function makeClc($_abs, $_ord) {
-
         // Cas particuliers
         if($_abs === 0 && $_abs === $_ord) {
             return 1;
-        } elseif ($_abs > $_ord || !is_int($_abs) || is_int($_ord)) {
-            return 'err';
+            // !is_int($_abs) || is_int($_ord)
+        } elseif ($_abs > $_ord) {
+            return 'ERROR:: Abscissa is greater than ordinate ¯\_(ツ)_/¯';
         }
 
-        // makeClc(2, 5) = makeClc(2, 4) + makeClc(1, 4)
-        // if ord = 2 & abs = 1
-        $test = [
-            1 => 1,
-            2 => 3
-        ];
-        foreach($test as $cle=>$valeur){
-            echo $cle;
-            echo $valeur;
+        // Ord, Abs
+        $res[0][0] = 1;
+        for( $i = 1; $i <= $_ord ; $i++ )
+        {
+            $res[$i][0] = 1;
+            for( $j = 1; $j <= $i ; $j++ )
+            {
+                $res[$i][$j] = $res[$i-1][$j-1] + $res[$i-1][$j];
+            }
         }
-        echo 'lel';
-//        for($i = 0; $i < $_ord ; $i++) {
-//            if($_ord) = 1
-//        }
-
+        return $res[$_ord][$_abs];
     }
 
 }
