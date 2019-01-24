@@ -6,6 +6,9 @@ Put this file in your project, and add require(), require_once, etc.
 > $calcul = new Calcul();  
 > echo $calcul->makeClc(2, 5);
 
+After this, run this command in your terminal : 
+> php yourfile.php
+
 Done ! 
 > **"It's works well" - Bill Gates**
 ```
