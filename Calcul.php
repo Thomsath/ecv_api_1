@@ -15,6 +15,8 @@ class Calcul
             // !is_int($_abs) || is_int($_ord)
         } elseif ($_abs > $_ord) {
             return 'ERROR:: Abscissa is greater than ordinate ¯\_(ツ)_/¯';
+        } elseif(is_float($_abs) || is_float ($_ord)) {
+           return 'ERROR:: Float number';
         }
 
         // Ord, Abs
